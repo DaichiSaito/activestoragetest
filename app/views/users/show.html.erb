@@ -10,7 +10,11 @@
   <%= @user.age %>
 </p>
 
-<%= image_tag(url_for(@user.avatar)) %>
+<%#= image_tag(url_for(@user.avatar)) %>
+<% @user.avatars.each do |avatar| %>
+  <%= image_tag(url_for(avatar)) %>
+<% end %>
+
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

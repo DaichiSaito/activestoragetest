@@ -28,9 +28,9 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        if params[:user][:avatar].present?
-          @user.avatar.attach(params[:user][:avatar])
-        end
+        # if params[:user][:avatars].present?
+        #   @user.avatars.attach(params[:user][:avatars])
+        # end
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
@@ -45,8 +45,8 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        if params[:user][:avatar].present?
-          @user.avatar.attach(params[:user][:avatar])
+        if params[:user][:avatars].present?
+          @user.avatars.attach(params[:user][:avatars])
         end
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
